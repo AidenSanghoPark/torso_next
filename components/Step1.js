@@ -124,11 +124,11 @@ const Step1 = () => {
     if (selectedComponent === "wait") {
       setIsModalOpen(true);
       handleKakao();
-      // const id = setTimeout(() => {
-      //   setIsModalOpen(false);
-      //   handleGoHome();
-      // }, 5000);
-      // setTimeoutId(id);
+      const id = setTimeout(() => {
+        setIsModalOpen(false);
+        handleGoHome();
+      }, 5000);
+      setTimeoutId(id);
     }
   }, [selectedComponent]);
 
