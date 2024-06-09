@@ -1,0 +1,102 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* index.css 또는 App.css */
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.logo-container {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  padding-bottom: 50px;
+}
+.centered button {
+  border-radius: 25px;
+  font-size: large;
+}
+/* .logo {
+    top: 40%;
+    left: 50%;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  } */
+.black-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100vw; /* 현재 화면 크기의 절반 */
+  height: 100vh; /* 현재 화면 크기의 절반 */
+  background-color: black;
+  opacity: 0.6;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+}
+
+.black-gradient {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100vw; /* 현재 화면 크기의 절반 */
+  height: 100vh; /* 현재 화면 크기의 절반 */
+  background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)); /* 그라데이션 효과 추가 */
+  /* z-index: 1; */
+  transform: translate(-50%, -50%);
+}
+
+.logo {
+  width: 100px; /* 로고의 너비를 조정 */
+  z-index: 2; /* 로고를 black-box 위로 올리기 위해 z-index를 설정 */
+}

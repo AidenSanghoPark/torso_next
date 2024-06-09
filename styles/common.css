@@ -1,0 +1,294 @@
+/* @import url("styles/common/normalize.css");
+@import url("styles/common/colors.css"); */
+@import url("font.css");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+button {
+  /* padding: 0 15px 20px 15px; 위아래 padding을 0으로 조정하여 텍스트가 버튼 내부에서 수직으로 가운데에 정렬되도록 합니다. */
+  font-size: 16px;
+  border: none;
+  width: 150px;
+  height: 50px;
+  border-radius: 20px;
+  background-color: transparent;
+  cursor: pointer;
+  border: 3.5px solid black;
+  line-height: 40px; /* 텍스트의 수직 정렬을 버튼의 높이와 동일하게 설정 */
+  text-align: center; /* 텍스트를 수평으로 가운데 정렬. */
+  /* margin-right: 25px; */
+}
+
+button.active {
+  border: 3.5px solid white;
+  color: white;
+}
+
+/* 네브바 */
+
+.top-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 40px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  -webkit-box-align: center;
+  min-width: 400px;
+  height: 120px;
+}
+
+.menu-item {
+  position: relative;
+  text-align: center;
+}
+
+.menu-item.active a {
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 21px;
+  letter-spacing: 6px;
+  background-color: white;
+  border-radius: 999px;
+  padding: 10px 20px; /* 초기 padding 값 */
+
+  @media (max-width: 400px) {
+    padding: 10px 10px;
+    font-size: 19px;
+  }
+}
+
+.menu-item a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 21px;
+  letter-spacing: 6px;
+  margin: auto;
+}
+
+/*  */
+
+/* 
+.container {
+  position: fixed;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow-y: auto;
+  max-height: 100vh;
+  min-width: 400px;
+  transform: translate(-50%, calc(-50% + 30px));
+} */
+
+.container {
+  position: fixed;
+  top: calc(50% + 40px); /* .top-navbar의 높이 반영 */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow-y: auto; /* 세로 스크롤이 내용을 벗어날 경우 생성 */
+  max-height: calc(100vh - 120px); /* 컨테이너가 뷰포트의 최대 높이를 넘지 않도록 설정 */
+  min-width: 400px;
+}
+
+.container::-webkit-scrollbar {
+  display: none; /* 웹킷 브라우저에서 스크롤바 숨기기 */
+}
+
+.container .row .col h3 {
+  color: #ffffff; /* 원하는 색상으로 변경 */
+  font-size: 24px; /* 원하는 글자 크기로 변경 */
+  margin-bottom: 50px;
+  font-weight: bold;
+}
+
+.container .row .col Button {
+  background-color: white;
+  font-weight: bold;
+  border-radius: 25px;
+  color: black; /* 원하는 색상으로 변경 */
+  font-size: 21px; /* 원하는 글자 크기로 변경 */
+  margin: 50px 15px 0px 15px;
+}
+
+.container .row .col Button:hover {
+  background-color: black;
+  color: white;
+}
+
+.container .row .col {
+  font-size: 20px; /* 원하는 폰트 크기로 변경 */
+  color: white;
+}
+
+.center-items {
+  font-size: 20px; /* 원하는 폰트 크기로 변경 */
+  color: white;
+  font-weight: bold;
+  /* margin: 15px 0px 15px 0px; */
+}
+
+.text-center .row {
+  margin-top: 30px; /* 원하는 여백 크기로 조정 */
+}
+
+.designer {
+  padding: 10px 0 10px 0;
+}
+.time {
+  padding: 10px 0 10px 0;
+}
+.style {
+  padding: 10px 0 10px 0;
+}
+.shampoo {
+  padding: 20px 0 20px 0;
+}
+
+.hair {
+  padding: 20px 0 20px 0;
+}
+.designer.selected {
+  border-bottom: 3px solid white;
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+.selected {
+  border-bottom: 3px solid white;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.col.text-center.mt-5 {
+  margin-top: 0 !important;
+}
+
+.black-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100vw; /* 현재 화면 크기의 절반 */
+  height: 100vh; /* 현재 화면 크기의 절반 */
+  background-color: black;
+  opacity: 0.6;
+  /* z-index: 1; */
+  transform: translate(-50%, -50%);
+}
+
+/* App.css */
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* index.css 또는 App.css */
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.logo-container {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  padding-bottom: 50px;
+}
+.centered button {
+  border-radius: 25px;
+  font-size: large;
+}
+/* .logo {
+    top: 40%;
+    left: 50%;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  } */
+.black-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100vw; /* 현재 화면 크기의 절반 */
+  height: 100vh; /* 현재 화면 크기의 절반 */
+  background-color: black;
+  opacity: 0.6;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+}
+
+.black-gradient {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100vw; /* 현재 화면 크기의 절반 */
+  height: 100vh; /* 현재 화면 크기의 절반 */
+  background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)); /* 그라데이션 효과 추가 */
+  /* z-index: 1; */
+  transform: translate(-50%, -50%);
+}
+
+.logo {
+  width: 100px; /* 로고의 너비를 조정 */
+  z-index: 2; /* 로고를 black-box 위로 올리기 위해 z-index를 설정 */
+}
