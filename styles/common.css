@@ -79,6 +79,43 @@ button.active {
   margin: auto;
 }
 
+.help {
+  position: fixed;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  /* background-color: rgba(0, 0, 0, 0.5);  */
+  color: white; /* 필요 시 텍스트 색상 설정 */
+  padding: 10px; /* 필요 시 패딩 설정 */
+  border-radius: 5px; /* 필요 시 테두리 반경 설정 */
+  z-index: 1000; /* 필요 시 z-index 설정 */
+}
+.underline {
+  text-decoration: underline;
+  cursor: pointer; /* 포인터로 변경 */
+}
+
+.underline.active {
+  color: black; /* 클릭 시 텍스트 색상 변경 */
+  text-decoration: none; /* 클릭 시 밑줄 제거 */
+  background-color: rgba(0, 0, 0, 0.3); /* 클릭 시 배경색 추가 */
+  border-radius: 5px; /* 클릭 시 테두리 반경 설정 */
+  padding: 5px; /* 클릭 시 패딩 설정 */
+  transition: none; /* 클릭 시 즉시 스타일 적용 */
+}
+
+.underline.fade-out {
+  animation: fadeOut 3s forwards; /* 3초 동안 천천히 원래 색으로 돌아가게 함 */
+}
+
+@keyframes fadeOut {
+  0% {
+    color: black; /* 시작 시 검은색 */
+  }
+  100% {
+    color: white; /* 끝날 때 원래 색 */
+  }
+}
 /*  */
 
 /* 

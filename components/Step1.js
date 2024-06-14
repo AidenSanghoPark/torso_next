@@ -50,7 +50,6 @@ const Step1 = () => {
   };
 
   const handleKakao = async () => {
-    console.log("환경변수테스트" + process.env.ROOT_PHONE_MASTER);
     try {
       const 디자이너 = localStorage.getItem("selectedDesigner");
       const 예약시간 = localStorage.getItem("selectedTime");
@@ -68,17 +67,14 @@ const Step1 = () => {
       //머리에 제품바른 경우
       if (스타일링) {
         샴푸여부 = "샴푸 필요";
-      } else if (!스타일링) {
-        스타일링 = "아니요";
+      } else {
+        스타일링 = "바로 가능";
       }
 
       let 디자이너번호;
       switch (디자이너) {
         case "진성":
           디자이너번호 = process.env.ROOT_PHONE_MASTER;
-          break;
-        case "태원":
-          디자이너번호 = process.env.ROOT_PHONE_TAEWON;
           break;
         case "민종":
           디자이너번호 = process.env.ROOT_PHONE_MINJONG;
@@ -110,6 +106,7 @@ const Step1 = () => {
           머리감기,
           스타일링,
           샴푸여부,
+          호출: false,
         }),
       });
 

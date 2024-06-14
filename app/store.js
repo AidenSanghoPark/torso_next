@@ -16,7 +16,7 @@ import { configureStore } from "@reduxjs/toolkit";
 
 const initialState = {
   // designers: ["진성", "태원", "민종", "대세", "도하", "다슬"],
-  designers: ["다슬", "대세", "도하", "민종", "태원", "진성"],
+  designers: ["다슬", "대세", "도하", "민종", "진성"],
   time: [
     "10:00",
     "10:30",

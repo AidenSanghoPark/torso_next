@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
-import background from "../public/assets/groupHorizon.webp"; // 이미지 경로 수정
+import background from "../public/assets/background.jpg"; // 이미지 경로 수정
 
 const scrollKeyframes = `
   @keyframes scroll {
