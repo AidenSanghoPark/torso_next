@@ -77,7 +77,7 @@ async function sendVariableTemplate(messageService, data) {
           "#{샴푸여부}": data.샴푸여부,
           "#{시술내용}": data.시술내용,
           "#{머리감기}": data.머리감기,
-          "#{제품}": data.스타일링,
+          "#{제품}": data.제품,
           "#{스타일링}": data.스타일링,
         },
       },

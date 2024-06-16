@@ -44,8 +44,8 @@ const initialState = {
   ],
   style: ["컷", "다운펌", "펌", "열펌", "컬러", "스타일링"],
   name: "",
-  shampoo: ["어제 밤", "아침", "오기 전", "기억안남"],
-  hair: ["어제", "아침", "오기 전", "모자착용"],
+  shampoo: ["어제 밤", "아침", "방문 전", "모자착용"],
+  hair: ["아니요", "에센스만", "기타"],
 };
 
 const designersReducer = (state = initialState, action) => {

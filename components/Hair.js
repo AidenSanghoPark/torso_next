@@ -22,7 +22,8 @@ const SelectHair = ({ handleHairSelection, handleNext, handlePrevious }) => {
 
   const renderHair = () => {
     return hair.map((s, index) => (
-      <Col key={index} xs={3} className="text-center mb-3 center-items">
+      // <Col key={index} xs={3} className="text-center mb-3 center-items">
+      <Col key={index} xs={4} className="text-center mb-3 center-items">
         <div className={`hair ${selectedHair === s ? "selected" : ""}`} onClick={() => handleSelectHair(s)}>
           {s}
         </div>

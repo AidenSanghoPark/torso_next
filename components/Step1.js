@@ -56,19 +56,21 @@ const Step1 = () => {
       const 시술내용 = localStorage.getItem("selectedStyles");
       const 고객명 = localStorage.getItem("name");
       const 머리감기 = localStorage.getItem("selectedShampoo");
-      let 스타일링 = localStorage.getItem("selectedHair");
+      let 제품 = localStorage.getItem("selectedHair");
       let 샴푸여부;
+      let 스타일링;
 
-      if (머리감기 === "어제 밤" || 머리감기 === "기억안남") {
+      if (머리감기 === "어제 밤" || 머리감기 === "모자착용") {
         샴푸여부 = "샴푸 필요";
       } else {
         샴푸여부 = "바로 가능";
       }
       //머리에 제품바른 경우
-      if (스타일링) {
+      if (제품 === "기타") {
         샴푸여부 = "샴푸 필요";
-      } else {
-        스타일링 = "바로 가능";
+        스타일링 = "";
+      } else if (제품 === "아니요") {
+        스타일링 = "말리기만";
       }
 
       let 디자이너번호;
@@ -105,6 +107,7 @@ const Step1 = () => {
           고객명,
           머리감기,
           스타일링,
+          제품,
           샴푸여부,
           호출: false,
         }),
