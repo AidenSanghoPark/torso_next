@@ -17,6 +17,7 @@ const SelectHair = ({ handleHairSelection, handleNext, handlePrevious }) => {
       setSelectedHair(hair);
       localStorage.setItem("selectedHair", hair);
       handleHairSelection(hair);
+      handleNext("wait");
     }
   };
 
@@ -40,7 +41,7 @@ const SelectHair = ({ handleHairSelection, handleNext, handlePrevious }) => {
       <h3>제품을 바르셨나요?</h3>
       <Row className="text-center">{renderHair()}</Row>
       <Button onClick={() => handlePrevious("shampoo")}>이전</Button>
-      <Button onClick={() => handleNextButtonClick()}>제출</Button>
+      {/* <Button onClick={() => handleNextButtonClick()}>제출</Button> */}
     </>
   );
 };

@@ -10,6 +10,7 @@ const SelectTime = ({ handleTimeSelection, handlePrevious, handleNext }) => {
     setSelectedTime(time);
     localStorage.setItem("selectedTime", time);
     handleTimeSelection(time);
+    handleNext("style");
   };
 
   const renderTime = () => {
@@ -36,7 +37,7 @@ const SelectTime = ({ handleTimeSelection, handlePrevious, handleNext }) => {
       <Row className="text-center">{renderTime()}</Row>
       {/* <Button onClick={handlePrevious}>이전</Button> */}
       <Button onClick={() => handlePrevious("designer")}>이전</Button>
-      <Button onClick={() => handleNextButtonClick()}>다음</Button>
+      {/* <Button onClick={() => handleNextButtonClick()}>다음</Button> */}
     </>
   );
 };

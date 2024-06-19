@@ -20,7 +20,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(0.625rem + 2vmin); /* 10px + 2vmin */
   color: white;
 }
 
@@ -37,7 +37,6 @@
   }
 }
 
-/* index.css 또는 App.css */
 @keyframes scroll {
   0% {
     transform: translateX(0%);
@@ -46,6 +45,7 @@
     transform: translateX(-100%);
   }
 }
+
 .centered {
   position: fixed;
   top: 50%;
@@ -56,16 +56,19 @@
   flex-direction: column;
   align-items: center;
 }
+
 .logo-container {
   width: 100%;
   max-width: 100%;
   height: auto;
-  padding-bottom: 50px;
+  padding-bottom: 3.125rem; /* 50px */
 }
+
 .centered button {
-  border-radius: 25px;
+  border-radius: 1.5625rem; /* 25px */
   font-size: large;
 }
+
 /* .logo {
     top: 40%;
     left: 50%;
@@ -73,12 +76,13 @@
     transform: translate(-50%, -50%);
     z-index: 1;
   } */
+
 .black-box {
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 100vw; /* 현재 화면 크기의 절반 */
-  height: 100vh; /* 현재 화면 크기의 절반 */
+  width: 100vw;
+  height: 100vh;
   background-color: black;
   opacity: 0.6;
   z-index: 1;
@@ -89,20 +93,18 @@
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 100vw; /* 현재 화면 크기의 절반 */
-  height: 100vh; /* 현재 화면 크기의 절반 */
-  background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)); /* 그라데이션 효과 추가 */
-  /* z-index: 1; */
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
   transform: translate(-50%, -50%);
 }
 
 .logo {
-  width: 100px; /* 로고의 너비를 조정 */
-  z-index: 2; /* 로고를 black-box 위로 올리기 위해 z-index를 설정 */
+  width: 6.25rem; /* 100px */
+  z-index: 2;
 }
 
-/* App.css 파일에 추가 */
 .btn-primary {
-  border-color: transparent !important; /* 테두리 색상을 투명으로 설정 */
-  box-shadow: none !important; /* 포커스 상태에서의 테두리 그림자를 제거 */
+  border-color: transparent !important;
+  box-shadow: none !important;
 }

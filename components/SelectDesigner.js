@@ -16,6 +16,7 @@ const SelectDesigner = ({ designers, handleDesignerSelection, handleGoHome, hand
     setSelectedDesigner(designer);
     localStorage.setItem("selectedDesigner", designer);
     handleDesignerSelection(designer);
+    handleNext("time");
   };
 
   const handleNextStep = () => {
@@ -54,7 +55,7 @@ const SelectDesigner = ({ designers, handleDesignerSelection, handleGoHome, hand
       <Link href="/">
         <Button>처음으로</Button>
       </Link>
-      <Button onClick={handleNextStep}>다음</Button>
+      {/* <Button onClick={handleNextStep}>다음</Button> */}
     </>
   );
 };
