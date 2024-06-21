@@ -15,7 +15,7 @@ export async function POST(req) {
 async function sendFixedTemplate(messageService) {
   try {
     const res = await messageService.send({
-      to: process.env.ROOT_PHONE_MASTER,
+      to: process.env.ROOT_PHONE_TORSO,
       // to: "01074842242",
       from: process.env.ROOT_PHONE_MASTER,
       kakaoOptions: {
@@ -33,7 +33,7 @@ async function sendFixedTemplate(messageService) {
 async function sendVariableTemplate(messageService, data) {
   try {
     const res = await messageService.send({
-      to: data.디자이너번호,
+      to: [data.디자이너번호, process.env.ROOT_PHONE_TORSO],
       // to: "01074842242",
       from: process.env.ROOT_PHONE_MASTER,
       kakaoOptions: {
