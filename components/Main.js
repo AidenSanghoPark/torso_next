@@ -70,7 +70,7 @@ const BackgroundScroll = () => {
           style={{
             objectFit: "cover",
             objectPosition: "left",
-            animation: "scroll 20s linear infinite",
+            animation: "scroll 45s linear infinite",
           }}
           priority
         />
