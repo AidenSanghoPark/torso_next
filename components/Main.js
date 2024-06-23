@@ -21,6 +21,7 @@ const BackgroundScroll = () => {
   const [imgWidth, setImgWidth] = useState(0);
   const [numImages, setNumImages] = useState(0);
   const [aspectRatio, setAspectRatio] = useState(1);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -55,6 +56,21 @@ const BackgroundScroll = () => {
     }
   }, [imgWidth, containerWidth]);
 
+  useEffect(() => {
+    if (numImages > 0) {
+      const imgElements = Array.from(document.querySelectorAll(".background-image"));
+      const checkImagesLoaded = () => {
+        if (imgElements.every((img) => img.complete)) {
+          setImagesLoaded(true);
+        }
+      };
+      imgElements.forEach((img) => {
+        img.onload = checkImagesLoaded;
+        img.onerror = checkImagesLoaded; // Handle error case
+      });
+    }
+  }, [numImages]);
+
   // Create the infinite scroll effect by connecting images
   const connectedImages = [];
   for (let i = 0; i < 2; i++) {
@@ -67,10 +83,11 @@ const BackgroundScroll = () => {
           layout="fixed"
           width={imgWidth}
           height={Math.ceil(imgWidth / aspectRatio)}
+          className="background-image"
           style={{
             objectFit: "cover",
             objectPosition: "left",
-            animation: "scroll 45s linear infinite",
+            animation: imagesLoaded ? "scroll 45s linear infinite" : "none",
           }}
           priority
         />
