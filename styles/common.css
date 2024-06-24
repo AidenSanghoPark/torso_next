@@ -80,15 +80,30 @@ button.active {
   margin: auto;
 }
 
+/* .help {
+  position: fixed;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  padding: 0.625rem;
+  border-radius: 0.3125rem;
+  z-index: 1000;
+} */
+
 .help {
   position: fixed;
   bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
   color: white;
-  padding: 0.625rem; /* 10px */
-  border-radius: 0.3125rem; /* 5px */
-  z-index: 1000;
+  padding: 0.625rem;
+  border-radius: 0.3125rem;
+  z-index: 1000; /* 애니메이션 요소보다 낮은 값으로 설정 */
+  width: 80%;
+  max-width: 600px;
+  text-align: center;
+  font-size: 1.15rem;
 }
 .underline {
   text-decoration: underline;
