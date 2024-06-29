@@ -2,23 +2,29 @@
 import { Provider } from "react-redux";
 import store from "./store"; // Redux store import
 import Image from "next/image";
-// import styles from "./page.module.css";
 import React, { useEffect } from "react";
-
 import LogoWhite from "../public/assets/logo_white.svg";
 import Link from "next/link";
 import styled, { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
-   
-      body {
+  body {
     font-family: 'Pretendard', sans-serif;
     margin: 0;
   }
 `;
+
 const FontWrapper = styled.div`
   font-family: Pretendard, sans-serif;
 `;
+
+const LogoContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 3.125rem; /* 50px */
+`;
+
 export default function Home() {
   useEffect(() => {
     localStorage.clear(); // 페이지가 로드될 때마다 로컬 스토리지 초기화
@@ -52,11 +58,15 @@ export default function Home() {
         <Provider store={store}>
           <div className="App">
             <div className="black-box"></div>
-            {/* <Main /> */}
             <div className="centered">
-              <div className="logo-container">
-                <Image src={LogoWhite} alt="Logo" layout="responsive" width={250} height={100} />
-              </div>
+              <LogoContainer>
+                <Image
+                  src={LogoWhite}
+                  alt="Logo"
+                  style={{ width: "325px", height: "auto" }} // 크기를 30% 더 크게
+                  priority
+                />
+              </LogoContainer>
               <Step1Button />
             </div>
             <div className="help">

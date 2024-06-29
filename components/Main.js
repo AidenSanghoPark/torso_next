@@ -17,80 +17,68 @@ const scrollKeyframes = `
 
 const BackgroundScroll = () => {
   const containerRef = useRef(null);
-  const [containerWidth, setContainerWidth] = useState(0);
+  const imgCache = useRef(null);
   const [imgWidth, setImgWidth] = useState(0);
   const [numImages, setNumImages] = useState(0);
   const [aspectRatio, setAspectRatio] = useState(1);
-  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
-    // Get image dimensions
     const handleLoad = () => {
-      const img = new window.Image();
-      img.onload = () => {
-        const newAspectRatio = img.width / img.height;
+      if (!imgCache.current) {
+        const img = new window.Image();
+        img.onload = () => {
+          imgCache.current = img;
+          const newAspectRatio = img.width / img.height;
+          setAspectRatio(newAspectRatio);
+          const newImgWidth = Math.ceil(container.clientHeight * newAspectRatio);
+          setImgWidth(newImgWidth);
+          setNumImages(Math.ceil(container.clientWidth / newImgWidth) + 1);
+        };
+        img.src = background.src;
+      } else {
+        const newAspectRatio = imgCache.current.width / imgCache.current.height;
         setAspectRatio(newAspectRatio);
-        const newWidth = Math.ceil(container.clientHeight * newAspectRatio);
-        setImgWidth(newWidth);
-        setContainerWidth(container.clientWidth);
-      };
-      img.src = background.src;
+        const newImgWidth = Math.ceil(container.clientHeight * newAspectRatio);
+        setImgWidth(newImgWidth);
+        setNumImages(Math.ceil(container.clientWidth / newImgWidth) + 1);
+      }
     };
     handleLoad();
 
     const handleResize = () => {
-      setContainerWidth(container.clientWidth);
+      const newImgWidth = Math.ceil(container.clientHeight * aspectRatio);
+      setImgWidth(newImgWidth);
+      setNumImages(Math.ceil(container.clientWidth / newImgWidth) + 1);
     };
 
     window.addEventListener("resize", handleResize);
+    handleResize();
+
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, [aspectRatio]);
 
-  useEffect(() => {
-    if (imgWidth !== 0 && containerWidth !== 0) {
-      const numPreloadImages = Math.ceil(containerWidth / imgWidth) + 1;
-      setNumImages(numPreloadImages);
-    }
-  }, [imgWidth, containerWidth]);
-
-  useEffect(() => {
-    if (numImages > 0) {
-      const imgElements = Array.from(document.querySelectorAll(".background-image"));
-      const checkImagesLoaded = () => {
-        if (imgElements.every((img) => img.complete)) {
-          setImagesLoaded(true);
-        }
-      };
-      imgElements.forEach((img) => {
-        img.onload = checkImagesLoaded;
-        img.onerror = checkImagesLoaded; // Handle error case
-      });
-    }
-  }, [numImages]);
-
-  // Create the infinite scroll effect by connecting images
   const connectedImages = [];
   for (let i = 0; i < 2; i++) {
     connectedImages.push(
       ...Array.from({ length: numImages }).map((_, index) => (
-        <Image
-          key={`${i}-${index}`} // Unique key
-          src={background}
-          alt="background"
-          layout="fixed"
-          width={imgWidth}
-          height={Math.ceil(imgWidth / aspectRatio)}
-          className="background-image"
-          style={{
-            objectFit: "cover",
-            objectPosition: "left",
-            animation: imagesLoaded ? "scroll 45s linear infinite" : "none",
-          }}
-          priority
-        />
+        <div key={`${i}-${index}`} style={{ flexShrink: 0, width: `${imgWidth}px`, position: "relative", height: "100%" }}>
+          <Image
+            src={background}
+            alt="background"
+            fill
+            className="background-image"
+            style={{
+              objectFit: "cover",
+              objectPosition: "left",
+              animation: "scroll 45s linear infinite",
+            }}
+            priority
+            unoptimized
+          />
+        </div>
       ))
     );
   }
@@ -98,8 +86,8 @@ const BackgroundScroll = () => {
   return (
     <div className="BackgroundScroll" style={{ overflow: "hidden", position: "relative", minHeight: "100vh" }}>
       <style>{scrollKeyframes}</style>
-      <div ref={containerRef} className="background" style={{ width: "100%", height: "100vh", overflow: "hidden", position: "relative" }}>
-        <div style={{ display: "flex", height: "100%" }}>{connectedImages}</div>
+      <div ref={containerRef} className="background" style={{ width: `${imgWidth * numImages * 2}px`, height: "100vh", overflow: "hidden", position: "relative" }}>
+        <div style={{ display: "flex", height: "100%", position: "absolute", top: 0, left: 0, right: 0, bottom: 0 }}>{connectedImages}</div>
       </div>
     </div>
   );

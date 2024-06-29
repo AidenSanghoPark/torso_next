@@ -59,8 +59,8 @@
 
 .logo-container {
   width: 100%;
-  max-width: 100%;
-  height: auto;
+  display: flex;
+  justify-content: center;
   padding-bottom: 3.125rem; /* 50px */
 }
 

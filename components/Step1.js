@@ -11,6 +11,10 @@ import CustomModal from "./CustomModal";
 import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+const FontWrapper = styled.div`
+  font-family: Pretendard, sans-serif;
+`;
+
 const Step1 = () => {
   const designers = useSelector((state) => state.designers);
   const [selectedComponent, setSelectedComponent] = useState("designer");
@@ -141,10 +145,6 @@ const Step1 = () => {
   const handleGoHome = () => {
     window.location.href = "/"; // 루트 URL로 이동
   };
-
-  const FontWrapper = styled.div`
-    font-family: Pretendard, sans-serif;
-  `;
 
   return (
     <>
