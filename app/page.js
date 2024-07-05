@@ -113,9 +113,9 @@ export default function Home() {
                   />
                 </svg>
               </LogoContainer>
-              <Step1Button />
             </div>
             <div className="help">
+              <Step1Button />
               <p>환영합니다. 토르소포맨 홍대상수점입니다.</p>
               <p>
                 도움이 필요하시면{" "}
@@ -134,8 +134,8 @@ export default function Home() {
 
 function Step1Button() {
   return (
-    <Link href="/step">
-      <button className="active">셀프 체크인</button>
+    <Link href="/step" style={{ textDecoration: "none" }}>
+      <button className="step1-button">셀프 체크인</button>
     </Link>
   );
 }
