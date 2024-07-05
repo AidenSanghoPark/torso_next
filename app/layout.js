@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Main from "../components/Main"; // Ensure Main is a client component
+// import Main from "../components/Main"; // Ensure Main is a client component
+// import NewMain from "../components/NewMain";
 import "../styles/common.css";
 import "../styles/App.css";
 
@@ -22,7 +23,8 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className={inter.className}>
-        <Main /> {/* Main should be within body */}
+        {/* <NewMain /> */}
+        {/* <Main /> Main should be within body */}
         {children}
       </body>
     </html>
