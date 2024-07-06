@@ -97,7 +97,7 @@ button.active {
   border-radius: 0.3125rem;
   z-index: 1000;
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.6rem;
 }
 
 .underline {
@@ -135,7 +135,7 @@ button.active {
   text-decoration: none !important;
   outline: none !important;
   box-shadow: none !important;
-  font-size: 2rem !important; /* 폰트 크기 설정 */
+  font-size: 1.8rem !important; /* 폰트 크기 설정 */
   width: auto !important; /* 너비 자동 조정 */
   height: auto !important; /* 높이 자동 조정 */
   min-width: 9.375rem; /* 최소 너비 설정 */
