@@ -65,10 +65,10 @@ button.active {
   border-radius: 999px;
   padding: 0.625rem 1.25rem; /* 10px 20px */
 
-  @media (max-width: 400px) {
-    padding: 0.625rem 0.625rem; /* 10px 10px */
-    font-size: 1.1875rem; /* 19px */
-  }
+  /* @media (max-width: 400px) {
+    padding: 0.625rem 0.625rem; 
+    font-size: 1.1875rem; 
+  } */
 }
 
 .menu-item a {
@@ -92,22 +92,14 @@ button.active {
 } */
 
 .help {
-  position: fixed;
-  bottom: 5%;
-  left: 50%;
-  transform: translateX(-50%);
   color: white;
   padding: 0.625rem;
   border-radius: 0.3125rem;
-  z-index: 1000; /* 애니메이션 요소보다 낮은 값으로 설정 */
-  width: 80%;
-  max-width: 600px;
+  z-index: 1000;
   text-align: center;
-  font-size: 1.15rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  font-size: 2rem;
 }
+
 .underline {
   text-decoration: underline;
   cursor: pointer;
@@ -127,24 +119,28 @@ button.active {
 }
 
 .step1-button {
-  border: 0.21875rem solid white;
-  color: white;
-  background-color: transparent;
-  border-radius: 50px; /* border를 둥글게 설정 */
-  font-size: 1.3rem; /* 글자 크기를 키움 */
-  padding: 0.625rem 2rem; /* 좌우 패딩을 더 크게 설정 */
-  cursor: pointer;
-  margin-bottom: 1rem; /* help 영역과 버튼 사이에 간격을 추가 */
-  display: flex; /* flexbox 사용 */
-  align-items: center; /* 수직 중앙 정렬 */
-  justify-content: center; /* 수평 중앙 정렬 */
-  text-align: center; /* 텍스트를 중앙에 위치 */
-  white-space: nowrap; /* 텍스트 줄바꿈 방지 */
-  text-decoration: none; /* 밑줄 제거 */
-  outline: none; /* 클릭 시 생기는 윤곽선 제거 */
-  box-shadow: none; /* 기본 그림자 제거 */
+  border: 0.4375rem solid white !important;
+  border-width: ;
+  color: white !important;
+  background-color: transparent !important;
+  border-radius: 50px !important;
+  padding: 0.625rem 2rem !important;
+  cursor: pointer !important;
+  margin-bottom: 1rem !important;
+  display: inline-flex !important; /* inline-flex로 설정 */
+  align-items: center !important; /* 수직 중앙 정렬 */
+  justify-content: center !important; /* 수평 중앙 정렬 */
+  text-align: center !important;
+  white-space: nowrap !important;
+  text-decoration: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  font-size: 2rem !important; /* 폰트 크기 설정 */
+  width: auto !important; /* 너비 자동 조정 */
+  height: auto !important; /* 높이 자동 조정 */
+  min-width: 9.375rem; /* 최소 너비 설정 */
+  min-height: 3.125rem; /* 최소 높이 설정 */
 }
-
 @keyframes fadeOut {
   0% {
     color: black;
@@ -308,13 +304,24 @@ button.active {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+  width: 100%;
 }
-
-.logo-container {
+/* .logo-container {
   width: 100%;
   max-width: 100%;
   height: auto;
-  padding-bottom: 3.125rem; /* 50px */
+  padding-bottom: 3.125rem; 
+} */
+
+.logo-container {
+  width: 40%;
+  height: auto;
+  padding-bottom: 3.125rem;
+}
+.logo-container svg {
+  width: 100%;
+  height: auto;
 }
 
 .centered button {
