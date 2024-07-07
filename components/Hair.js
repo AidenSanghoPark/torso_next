@@ -17,7 +17,7 @@ const SelectHair = ({ handleHairSelection, handleNext, handlePrevious }) => {
       setSelectedHair(hair);
       localStorage.setItem("selectedHair", hair);
       handleHairSelection(hair);
-      handleNext("wait");
+      handleNext("dry");
     }
   };
 

@@ -15,7 +15,6 @@ import { configureStore } from "@reduxjs/toolkit";
 // });
 
 const initialState = {
-  // designers: ["진성", "태원", "민종", "대세", "도하", "다슬"],
   designers: ["다슬", "대세", "도하", "민종", "진성"],
   time: [
     "10:00",
@@ -46,6 +45,7 @@ const initialState = {
   name: "",
   shampoo: ["어제 밤", "아침", "방문 전", "모자착용"],
   hair: ["아니요", "에센스만", "기타"],
+  dry: ["말리기만", "핸드 드라이", "롤", "고데기"],
 };
 
 const designersReducer = (state = initialState, action) => {
@@ -71,6 +71,10 @@ const shampooReducer = (state = initialState, action) => {
 const hairReducer = (state = initialState, action) => {
   return state.hair;
 };
+
+const dryReducer = (state = initialState, action) => {
+  return state.dry;
+};
 export default configureStore({
   reducer: {
     designers: designersReducer,
@@ -79,5 +83,6 @@ export default configureStore({
     name: nameReducer,
     shampoo: shampooReducer,
     hair: hairReducer,
+    dry: dryReducer,
   },
 });

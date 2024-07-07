@@ -7,6 +7,7 @@ import SelectStyle from "./SelectStyle";
 import Name from "./InputName";
 import Shampoo from "./Shampoo";
 import Hair from "./Hair";
+import Dry from "./selectDry";
 import CustomModal from "./CustomModal";
 import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -37,12 +38,16 @@ const Step1 = () => {
     setSelectedComponent("name");
   };
 
-  const handleShampooSelection = () => {
+  const handleShampooSelection = (shampoo) => {
     setSelectedComponent("shampoo");
   };
 
   const handleHairSelection = () => {
     setSelectedComponent("hair");
+  };
+
+  const handleDrySelection = () => {
+    setSelectedComponent("dry");
   };
 
   const handleNext = (component) => {
@@ -61,8 +66,8 @@ const Step1 = () => {
       const 고객명 = localStorage.getItem("name");
       const 머리감기 = localStorage.getItem("selectedShampoo");
       let 제품 = localStorage.getItem("selectedHair");
+      let 스타일링 = localStorage.getItem("selectedDry");
       let 샴푸여부;
-      let 스타일링;
 
       if (머리감기 === "어제 밤" || 머리감기 === "모자착용") {
         샴푸여부 = "샴푸 필요";
@@ -72,9 +77,6 @@ const Step1 = () => {
       //머리에 제품바른 경우
       if (제품 === "기타") {
         샴푸여부 = "샴푸 필요";
-        스타일링 = "";
-      } else if (제품 === "아니요") {
-        스타일링 = "말리기만";
       }
 
       let 디자이너번호;
@@ -134,6 +136,13 @@ const Step1 = () => {
       }, 5000);
       setTimeoutId(id);
     }
+
+    // Cleanup timeout if component is unmounted or selectedComponent changes
+    return () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+    };
   }, [selectedComponent]);
 
   const handleCloseModal = () => {
@@ -154,19 +163,15 @@ const Step1 = () => {
         <div className="container">
           <div className="row">
             <div className="col text-center mt-5">
-              {selectedComponent === "designer" ? (
-                <SelectDesigner designers={designers} handleDesignerSelection={handleDesignerSelection} handleNext={() => handleNext("time")} />
-              ) : selectedComponent === "time" ? (
-                <SelectTime handleTimeSelection={handleTimeSelection} handlePrevious={() => handlePrevious("designer")} handleNext={() => handleNext("style")} />
-              ) : selectedComponent === "style" ? (
-                <SelectStyle handleStyleSelection={handleStyleSelection} handlePrevious={() => handlePrevious("time")} handleNext={() => handleNext("name")} />
-              ) : selectedComponent === "name" ? (
-                <Name handleNameInput={handleNameInput} handlePrevious={() => handlePrevious("style")} handleNext={() => handleNext("shampoo")} />
-              ) : selectedComponent === "shampoo" ? (
-                <Shampoo handleShampooSelection={handleShampooSelection} handlePrevious={() => handlePrevious("name")} handleNext={() => handleNext("hair")} />
-              ) : (
-                <Hair handleHairSelection={handleHairSelection} handlePrevious={() => handlePrevious("shampoo")} handleNext={() => handleNext("wait")} />
+              {selectedComponent === "designer" && <SelectDesigner designers={designers} handleDesignerSelection={handleDesignerSelection} handleNext={() => handleNext("time")} />}
+              {selectedComponent === "time" && <SelectTime handleTimeSelection={handleTimeSelection} handlePrevious={() => handlePrevious("designer")} handleNext={() => handleNext("style")} />}
+              {selectedComponent === "style" && <SelectStyle handleStyleSelection={handleStyleSelection} handlePrevious={() => handlePrevious("time")} handleNext={() => handleNext("name")} />}
+              {selectedComponent === "name" && <Name handleNameInput={handleNameInput} handlePrevious={() => handlePrevious("style")} handleNext={() => handleNext("shampoo")} />}
+              {selectedComponent === "shampoo" && (
+                <Shampoo handleShampooSelection={handleShampooSelection} handlePrevious={() => handlePrevious("name")} handleNext={(component) => handleNext(component)} />
               )}
+              {selectedComponent === "hair" && <Hair handleHairSelection={handleHairSelection} handlePrevious={() => handlePrevious("shampoo")} handleNext={() => handleNext("dry")} />}
+              {selectedComponent === "dry" && <Dry handleDrySelection={handleDrySelection} handlePrevious={() => handlePrevious("hair")} handleNext={() => handleNext("wait")} />}
             </div>
           </div>
         </div>
@@ -182,7 +187,7 @@ function NavBar({ selectedComponent }) {
       <div className={`menu-item ${["designer", "time", "style", "name"].includes(selectedComponent) ? "active" : ""}`}>
         <a href="#">예약확인</a>
       </div>
-      <div className={`menu-item ${["shampoo", "hair"].includes(selectedComponent) ? "active" : ""}`}>
+      <div className={`menu-item ${["shampoo", "hair", "dry"].includes(selectedComponent) ? "active" : ""}`}>
         <a href="#">모발체크</a>
       </div>
       <div className={`menu-item ${["wait"].includes(selectedComponent) ? "active" : ""}`}>
