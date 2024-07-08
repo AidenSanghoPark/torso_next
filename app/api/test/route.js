@@ -16,7 +16,6 @@ async function sendFixedTemplate(messageService) {
   try {
     const res = await messageService.send({
       to: process.env.ROOT_PHONE_TORSO,
-      // to: "01074842242",
       from: process.env.ROOT_PHONE_MASTER,
       kakaoOptions: {
         pfId: process.env.PFID,
@@ -32,9 +31,16 @@ async function sendFixedTemplate(messageService) {
 
 async function sendVariableTemplate(messageService, data) {
   try {
+    // 기본 수신 번호 설정
+    const recipients = [data.디자이너번호, process.env.ROOT_PHONE_TORSO];
+
+    // 디자이너 번호가 ROOT_PHONE_MASTER인 경우 ROOT_PHONE_SEUNGWON 추가
+    if (data.디자이너번호 === process.env.ROOT_PHONE_MASTER) {
+      recipients.push(process.env.ROOT_PHONE_SEUNGWON);
+    }
+
     const res = await messageService.send({
-      to: [data.디자이너번호, process.env.ROOT_PHONE_TORSO, process.env.ROOT_PHONE_SEUNGWON],
-      // to: "01074842242",
+      to: recipients,
       from: process.env.ROOT_PHONE_MASTER,
       kakaoOptions: {
         pfId: process.env.PFID,
