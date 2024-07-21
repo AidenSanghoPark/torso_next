@@ -37,7 +37,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Pretendard', sans-serif;
     margin: 0;
-    background: url('/assets/bg_main_1080.png') no-repeat center center fixed;
+    background: url('/assets/bg_main_1080.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #fff;
   }
