@@ -37,7 +37,8 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Pretendard', sans-serif;
     margin: 0;
-    background-color: #000;
+    background: url('/assets/bg_main_1080.png') no-repeat center center fixed;
+    background-size: cover;
     color: #fff;
   }
 
@@ -119,7 +120,7 @@ export default function Home() {
 
               <div className="help">
                 <Step1Button />
-                <p>환영합니다. 토르소포맨 홍대상수점입니다.</p>
+                <p>환영합니다. 토르소포맨 홍대 합정점 입니다.</p>
                 <p>
                   도움이 필요하시면{" "}
                   <strong className="underline" onClick={handleHelpClick}>

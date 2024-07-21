@@ -347,7 +347,9 @@ button.active {
   left: 50%;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+  /* background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)); */
+  background: url("/assets/bg_sub_1080.png") no-repeat center center fixed;
+  background-size: cover;
   transform: translate(-50%, -50%);
 }
 
