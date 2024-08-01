@@ -29,8 +29,8 @@ button {
 }
 
 button.active {
-  border: 0.21875rem solid white; /* 3.5px */
-  color: white;
+  border: 0.21875rem solid black; /* 3.5px */
+  color: black;
 }
 
 /* 네브바 */
@@ -64,7 +64,7 @@ button.active {
   background-color: white;
   border-radius: 999px;
   padding: 0.625rem 1.25rem; /* 10px 20px */
-
+  border: solid;
   /* @media (max-width: 400px) {
     padding: 0.625rem 0.625rem; 
     font-size: 1.1875rem; 
@@ -73,7 +73,7 @@ button.active {
 
 .menu-item a {
   text-decoration: none;
-  color: #ffffff;
+  color: black;
   font-weight: bold;
   font-size: 1.3125rem; /* 21px */
   letter-spacing: 0.375rem; /* 6px */
@@ -85,14 +85,15 @@ button.active {
   bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
-  color: white;
+  color: black;
   padding: 0.625rem;
   border-radius: 0.3125rem;
   z-index: 1000;
 } */
 
 .help {
-  color: white;
+  color: black;
+  font-weight: bold;
   padding: 0.625rem;
   border-radius: 0.3125rem;
   z-index: 1000;
@@ -119,9 +120,10 @@ button.active {
 }
 
 .step1-button {
-  border: 0.4375rem solid white !important;
-  border-width: ;
-  color: white !important;
+  border: 0.2375rem solid black !important;
+
+  color: black !important;
+  font-weight: bold;
   background-color: transparent !important;
   border-radius: 50px !important;
   padding: 0.625rem 2rem !important;
@@ -131,7 +133,7 @@ button.active {
   align-items: center !important; /* 수직 중앙 정렬 */
   justify-content: center !important; /* 수평 중앙 정렬 */
   text-align: center !important;
-  white-space: nowrap !important;
+  black-space: nowrap !important;
   text-decoration: none !important;
   outline: none !important;
   box-shadow: none !important;
@@ -146,7 +148,7 @@ button.active {
     color: black;
   }
   100% {
-    color: white;
+    color: black;
   }
 }
 
@@ -165,7 +167,7 @@ button.active {
 }
 
 .container .row .col h3 {
-  color: #ffffff;
+  color: "black";
   font-size: 1.5rem; /* 24px */
   margin-bottom: 3.125rem; /* 50px */
   font-weight: bold;
@@ -178,21 +180,22 @@ button.active {
   color: black;
   font-size: 1.3125rem; /* 21px */
   margin: 3.125rem 0.9375rem 0 0.9375rem; /* 50px 15px 0 15px */
+  border: 0.2375rem solid black !important;
 }
 
 .container .row .col Button:hover {
   background-color: black;
-  color: white;
+  color: black;
 }
 
 .container .row .col {
   font-size: 1.25rem; /* 20px */
-  color: white;
+  color: black;
 }
 
 .center-items {
   font-size: 1.25rem; /* 20px */
-  color: white;
+  color: black;
   font-weight: bold;
 }
 
@@ -221,13 +224,13 @@ button.active {
 }
 
 .designer.selected {
-  border-bottom: 0.1875rem solid white; /* 3px */
+  border-bottom: 0.1875rem solid black; /* 3px */
   max-width: 50%;
   margin: 0 auto;
 }
 
 .selected {
-  border-bottom: 0.1875rem solid white; /* 3px */
+  border-bottom: 0.1875rem solid black; /* 3px */
   max-width: 80%;
   margin: 0 auto;
 }
@@ -270,7 +273,7 @@ button.active {
   align-items: center;
   justify-content: center;
   font-size: calc(0.625rem + 2vmin); /* calc(10px + 2vmin) */
-  color: white;
+  color: black;
 }
 
 .App-link {
@@ -348,7 +351,8 @@ button.active {
   width: 100vw;
   height: 100vh;
   /* background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)); */
-  background: url("/assets/bg_sub_1080.jpg") no-repeat center center fixed;
+  /* background: url("/assets/bg_sub_1080.jpg") no-repeat center center fixed; */
+  /* background-color: white; */
   background-size: cover;
   transform: translate(-50%, -50%);
 }

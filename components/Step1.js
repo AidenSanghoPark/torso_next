@@ -87,9 +87,6 @@ const Step1 = () => {
         case "민종":
           디자이너번호 = process.env.ROOT_PHONE_MINJONG;
           break;
-        case "도하":
-          디자이너번호 = process.env.ROOT_PHONE_DOHA;
-          break;
         case "대세":
           디자이너번호 = process.env.ROOT_PHONE_DAESAE;
           break;
@@ -133,7 +130,7 @@ const Step1 = () => {
       const id = setTimeout(() => {
         setIsModalOpen(false);
         handleGoHome();
-      }, 5000);
+      }, 10000);
       setTimeoutId(id);
     }
 

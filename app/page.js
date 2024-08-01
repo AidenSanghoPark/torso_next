@@ -37,24 +37,24 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Pretendard', sans-serif;
     margin: 0;
-    background: url('/assets/bg_main_1080.jpg') no-repeat center center fixed;
+    // background: url('/assets/bg_main_1080.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #fff;
   }
 
   .draw {
-    stroke: #ffffff;
+    stroke: #000000;
     stroke-width: 1; /* 선의 두께를 얇게 조정 */
     fill: none;
     stroke-dasharray: 1000;
     stroke-dashoffset: 1000;
-    animation: ${draw} 4s ease-in-out forwards, ${reverseDraw} 3s ease-in-out 4s forwards;
+    animation: ${draw} 4s ease-in-out forwards, ${reverseDraw} 3s ease-in-out 4s forwards ;
   }
 
   .fill {
-    fill: #ffffff;
+    fill: #000000;
     fill-opacity: 0;
-    animation: ${fill} 4s ease-in-out 4s forwards;
+    animation: ${fill} 4s ease-in-out 4s forwards ;
   }
 `;
 

@@ -31,6 +31,9 @@ async function sendFixedTemplate(messageService) {
 
 async function sendVariableTemplate(messageService, data) {
   try {
+    // 테스트
+    // const recipients = "01074842242";
+
     // 기본 수신 번호 설정
     const recipients = [data.디자이너번호, process.env.ROOT_PHONE_TORSO];
 

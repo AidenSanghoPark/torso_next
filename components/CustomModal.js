@@ -9,7 +9,7 @@ const customStyles = {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    backgroundColor: "black",
+    // backgroundColor: "black",
     padding: "1.25em", // 패딩을 em 단위로 설정
     borderRadius: "0.5em", // borderRadius를 em 단위로 설정
     display: "flex",
@@ -17,7 +17,7 @@ const customStyles = {
     alignItems: "center",
     justifyContent: "center",
     textAlign: "center",
-    color: "white",
+    color: "black",
     overflow: "auto", // 스크롤바를 자동으로 추가
   },
   text: {
@@ -25,8 +25,8 @@ const customStyles = {
     lineHeight: "1.6em", // 줄 간격을 em 단위로 설정
   },
   button: {
-    border: "0.1875em solid white", // 버튼 테두리를 em 단위로 설정
-    color: "white",
+    border: "0.1875em solid black", // 버튼 테두리를 em 단위로 설정
+    color: "black",
     backgroundColor: "transparent",
     cursor: "pointer",
     padding: "0.5em 1.25em", // 버튼 내부 여백을 em 단위로 설정
